@@ -48,7 +48,7 @@ pub(crate) mod test {
     pub fn init() {
         INIT.call_once(|| {
             ThreadPoolBuilder::new()
-                .num_threads(1)
+                .num_threads(num_cpus::get())
                 .build_global()
                 .unwrap();
         });
